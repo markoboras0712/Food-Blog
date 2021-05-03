@@ -1,8 +1,8 @@
 {
-  "name": "nuxt-course",
+  "name": "daca-blog",
   "version": "1.0.0",
-  "description": "Nuxt.js course for Udemy",
-  "author": "Maximilian Schwarzmüller",
+  "description": "Erasmus Web Project",
+  "author": "Davor Stajcer",
   "private": true,
   "scripts": {
     "dev": "nuxt",
