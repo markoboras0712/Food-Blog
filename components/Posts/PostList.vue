@@ -1,10 +1,10 @@
 <template>
     <section class="post-list">
-        <PostPreview id="1" thumbnail="https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg"
+        <PostPreview id="1" :is-admin="isAdmin" thumbnail="https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg"
         title="La Belly" previewText="Dacan's speciality"/>
-        <PostPreview id="2" thumbnail="https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg"
+        <PostPreview id="2" is-admin="isAdmin" thumbnail="https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg"
         title="Belly King" previewText="Dacan's favourite"/>
-        <PostPreview id="3" thumbnail="https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg"
+        <PostPreview id="3" is-admin="isAdmin" thumbnail="https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg"
         title="Belly magic" previewText="Dacan's dessert"/>
     </section>
 </template>
@@ -14,6 +14,12 @@ import PostPreview from './PostPreview.vue'
 export default {
     components:{
         PostPreview
+    },
+    props:{
+        isAdmin: {
+            type: Boolean,
+            default: false,
+        }
     }
     
 }

@@ -23,6 +23,7 @@ export default {
   position: relative;
   padding: 30px;
   box-sizing: border-box;
+  background-image: url('https://previews.123rf.com/images/irrinn0215/irrinn02151805/irrinn0215180500098/101343305-ingredients-of-asian-cuisine-rice-noodles-leek-lettuce-red-hot-pepper-on-a-dark-wooden-background-ho.jpg');
   background-position: center;
   background-size: cover;
 }

@@ -4,7 +4,8 @@
         <button @click="$router.push('/admin/new-post')">Create New Post</button>
     </section>
     <section class="existing-posts">
-        <PostList />
+        <h1>Existing Food Posts</h1>
+        <PostList isAdmin />
     </section>
   </div>
 </template>
