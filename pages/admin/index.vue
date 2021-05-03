@@ -1,10 +1,10 @@
 <template>
   <div class="admin-page">
     <section class="new-post">
-        <button @click="$router.push('/admin/new-post')">Create New Post</button>
+        <AppButton @click="$router.push('/admin/new-post')">Create New Post</AppButton>
     </section>
     <section class="existing-posts">
-        <h1>Existing Food Posts</h1>
+        <h1>Edit Posts</h1>
         <PostList isAdmin />
     </section>
   </div>
@@ -12,9 +12,12 @@
 
 <script>
 import PostList from '../../components/Posts/PostList.vue';
+import AppButton from '../../components/UI/AppButton.vue';
 export default {
+    layout:'admin',
     components:{
-        PostList
+        PostList,
+        AppButton
     }
 }
 </script>

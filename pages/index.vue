@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get best food news!</h1>
     </section>
-    <PostList/>
+    <PostList :posts="loadedPosts"/>
   </div>
 </template>
 
@@ -12,6 +12,25 @@ import PostList from '../components/Posts/PostList.vue'
 export default {
   components: {
     PostList
+  },
+  data(){
+    return{
+      loadedPosts: [
+        {
+          id:'1',
+          title:'La Belly',
+          previewText:'Dacan speciality',
+          thumbnail:'https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg'
+        },
+        {
+          id:'2',
+          title:'Belly King',
+          previewText:'Dacan favourite burger',
+          thumbnail:'https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg'
+        },
+        
+      ]
+    }
   }
   
 }

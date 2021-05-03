@@ -2,7 +2,7 @@
     <form @submit.prevent="onSave">
                 <AppControlInput v-model="editedPost.author">Author Name</AppControlInput>
                 <AppControlInput v-model="editedPost.title">Title</AppControlInput>
-                <AppControlInput v-model="editedPost.thumbnailLink">Link</AppControlInput>
+                <AppControlInput v-model="editedPost.thumbnailLink">Picture Link</AppControlInput>
                 <AppControlInput control-type="textarea" v-model="editedPost.content">Content</AppControlInput>
                 <AppButton type="submit">Save</AppButton>
                 <AppButton type="button" style="margin-left: 10px" btn-style="cancel" 

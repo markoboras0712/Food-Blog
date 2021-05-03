@@ -1,11 +1,14 @@
 <template>
     <section class="post-list">
-        <PostPreview id="1" :is-admin="isAdmin" thumbnail="https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg"
-        title="La Belly" previewText="Dacan's speciality"/>
-        <PostPreview id="2" :is-admin="isAdmin" thumbnail="https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg"
-        title="Belly King" previewText="Dacan's favourite"/>
-        <PostPreview id="3" :is-admin="isAdmin" thumbnail="https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg"
-        title="Belly magic" previewText="Dacan's dessert"/>
+        <PostPreview 
+            v-for="post in posts"
+            :key="post.id"
+            :id="post.id"
+            :is-admin="isAdmin"
+            :thumbnail="post.thumbnail"
+            :title="post.title"
+            :previewText="post.previewText"
+        />
     </section>
 </template>
 
@@ -19,6 +22,10 @@ export default {
         isAdmin: {
             type: Boolean,
             default: false,
+        },
+        posts:{
+            type:Array,
+            required:true
         }
     }
     
