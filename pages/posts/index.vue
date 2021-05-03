@@ -10,10 +10,11 @@ export default {
   components:{
     PostList
   },
-  asyncData(context,callback){
-    setTimeout(()=> {
-      callback(null, {
-        loadedPosts: [
+  asyncData(context){
+    return new Promise((resolve,reject) => {
+      setTimeout(()=> {
+        resolve({
+          loadedPosts: [
         {
           id:'1',
           title:'La Belly',
@@ -28,8 +29,13 @@ export default {
         },
         
       ]
-      });
-    },1000);
+        });
+      },1000);
+    }).then(data => {
+      return data
+    }).catch(e=> {
+      context.error(e);
+    })
   }
   
 }
