@@ -1,4 +1,5 @@
 import Vuex from "vuex";
+import axios from "axios";
 
 const createStore = () => {
     return new Vuex.Store({
@@ -12,25 +13,15 @@ const createStore = () => {
         },
         actions: {
             nuxtServerInit(vuexContext,context){
-                return new Promise((resolve,reject) => {
-                    setTimeout(() => {
-                        vuexContext.commit("SET_POSTS", [
-                            {
-                                id:'1',
-                                title:'La Belly',
-                                previewText:'Dacan speciality',
-                                thumbnail:'https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg'
-                              },
-                              {
-                                id:'2',
-                                title:'Belly King',
-                                previewText:'Dacan favourite burger',
-                                thumbnail:'https://img.freepik.com/free-psd/top-view-fast-food-black-background-mock-up_23-2148321326.jpg?size=626&ext=jpg'
-                              },
-                        ]);
-                        resolve();
-                    }, 1000);
-                });
+                return axios.get('https://daca-blog-default-rtdb.firebaseio.com/posts.json')
+                .then(res=> {
+                    const postsArray = [];
+                    for(const key in res.data){
+                        postsArray.push({...res.data[key], id: key})
+                    }
+                    vuexContext.commit("SET_POSTS", postsArray);
+                })
+                .catch(e=> context.error(e));
             },
             setPosts(vuexContext,posts){
                 vuexContext.commit("SET_POSTS", posts);
