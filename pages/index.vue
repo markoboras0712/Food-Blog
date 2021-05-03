@@ -13,9 +13,10 @@ export default {
   components: {
     PostList
   },
-  data(){
-    return{
-      loadedPosts: [
+  asyncData(context,callback){
+    setTimeout(()=> {
+      callback(null, {
+        loadedPosts: [
         {
           id:'1',
           title:'La Belly',
@@ -30,7 +31,8 @@ export default {
         },
         
       ]
-    }
+      });
+    },1500);
   }
   
 }
