@@ -14,7 +14,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Belly King Blog' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVJQ3nrnd6P7Rd18YsanEJStKDv165Ezxncg&usqp=CAU" },
       { rel: 'stylesheet', href: "https://fonts.googleapis.com/css?family=Open+Sans" }
     ]
   },
@@ -22,12 +22,15 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#1aff1a', height: '5px' , duration: 5000 },
+  
+
 
   /*
   ** Global CSS
   */
   css: [
+    '~assets/styles/main.css'
   ],
 
   /*
@@ -52,5 +55,12 @@ module.exports = {
     extend(config, ctx) {
 
     }
+  },
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://daca-blog-default-rtdb.firebaseio.com'
+  },
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   }
 }
