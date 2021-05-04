@@ -59,7 +59,8 @@ module.exports = {
     }
   },
   env: {
-    baseUrl: process.env.BASE_URL || 'https://daca-blog-default-rtdb.firebaseio.com'
+    baseUrl: process.env.BASE_URL || 'https://daca-blog-default-rtdb.firebaseio.com',
+    fbAPIKey: 'AIzaSyCmwoDFVA-cwaMcN2jDv4oi2TqFaDxYp-c'
   },
   transition: {
     name: 'fade',
