@@ -18,6 +18,7 @@
 import axios from 'axios';
 export default {
   asyncData(context){
+    console.log(context.params);
     return axios.get('https://daca-blog-default-rtdb.firebaseio.com/posts/' + context.params.id + '.json')
     .then(res=> {
       return {

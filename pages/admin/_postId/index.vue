@@ -1,7 +1,7 @@
 <template>
     <div class="admin-post-page">
         <section class="update-form">
-            <AdminPostForm :post="loadedPost" />
+            <AdminPostForm :post="loadedPost" @submit="onSubmitted" />
         </section>
     </div>
 </template>
@@ -9,22 +9,30 @@
 
 
 <script>
+import axios from 'axios';
 import AdminPostForm from '../../../components/Admin/AdminPostForm.vue';
 export default {
     layout: 'admin',
     components:{
         AdminPostForm
     },
-    data(){
-        return {
-            loadedPost:{
-            author:'Davor',
-            title:'Stajcer',
-            content:'My La Belly sandwich',
-            thumbnailLink: 'https://e7.pngegg.com/pngimages/107/673/png-clipart-hamburger-barbecue-cheeseburger-barbecue-food-cheeseburger-thumbnail.png'
+    asyncData(context){
+        console.log(context.params);
+        return axios.get('https://daca-blog-default-rtdb.firebaseio.com/posts/' +  context.params.postId + '.json')
+        .then(res=> {
+            console.log(res);
+            return {
+                loadedPost : {...res.data, id : context.params.postId}
+            }
+        })
+        .catch(e=> context.error());
+    },
+    methods:{
+        onSubmitted(editedPost){
+            this.$store.dispatch('editPost', editedPost).then(()=> {
+                this.$router.push('/admin');
+            });
         }
-        }
-        
     }
     
 }
