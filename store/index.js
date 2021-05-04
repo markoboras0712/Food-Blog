@@ -20,6 +20,9 @@ const createStore = () => {
             },
             SET_TOKEN(state,token){
                 state.token = token;
+            },
+            CLEAR_TOKEN(state){
+                state.token = null;
             }
 
         },
@@ -72,9 +75,15 @@ const createStore = () => {
                     }).then(result=> {
                         console.log(result);
                         vuexContext.commit("SET_TOKEN", result.data.idToken);
+                        vuexContext.dispatch("setLogoutTimer", result.data.expiresIn * 1000);
                     }).catch(error => {
                         console.log(error);
                     })
+            },
+            setLogoutTimer(vuexContext,duration){
+                setTimeout(()=> {
+                    vuexContext.commit("CLEAR_TOKEN");
+                }, duration);
             }
         },
         getters: {
