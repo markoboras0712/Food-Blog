@@ -15,24 +15,21 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-  asyncData(context,callback){
-    setTimeout(()=> {
-      callback(null, {
-        loadedPost: {
-          id:'1',
-          title:"First Food Post(ID: " + context.route.params.id + ")",
-          previewText: "Dacan Speciality",
-          author: "Dacan",
-          updatedDate: new Date(),
-          content: "Piletina,namaz i kruh iz menze",
-          thumbnail: "https://w7.pngwing.com/pngs/815/684/png-transparent-mcchicken-chicken-sandwich-hamburger-mcdonald-s-chicken-mcnuggets-club-sandwich-chicken-burger-thumbnail.png"
-        }
-      })
-    },1000);
+  asyncData(context){
+    return axios.get('https://daca-blog-default-rtdb.firebaseio.com/posts/' + context.params.id + '.json')
+    .then(res=> {
+      return {
+        loadedPost : res.data
+      }
+    }).
+    catch(e=> context.error(e));
+    
   }
 }
 </script>
+
 
 <style scoped>
 .single-post-page {
