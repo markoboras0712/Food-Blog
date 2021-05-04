@@ -25,23 +25,13 @@ export default {
     },
     methods: {
         onSubmit(){
-            let authUrl =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" +
-        process.env.fbAPIKey;
-      if (!this.isLogin) {
-        authUrl =
-          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" +
-          process.env.fbAPIKey;
-      }
-            return axios.post(authUrl, {
-                email: this.email,
-                password: this.password,
-                returnSecureToken: true
-            }).then(result=> {
-                console.log(result);
-            }).catch(error => {
-                console.log(error);
-            })
+            this.$store.dispatch('authenticateUser', {
+                email : this.email,
+                isLogin : this.isLogin,
+                password: this.password
+            }).then(() => {
+                this.$router.push('/posts');
+            }) 
         }
     }
 }
