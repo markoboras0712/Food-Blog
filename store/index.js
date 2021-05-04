@@ -43,14 +43,14 @@ const createStore = () => {
                     ...post,
                     updatedDate : new Date()
                 };
-                return axios.post('https://daca-blog-default-rtdb.firebaseio.com/posts.json', createdPost )
+                return axios.post('https://daca-blog-default-rtdb.firebaseio.com/posts.json?auth=' + vuexContext.state.token, createdPost )
                 .then(result=> {
                     console.log(result);
                     vuexContext.commit('ADD_POST', {...createdPost, id: result.data.name});
                 }).catch(e=> console.log(e));
                 },
             editPost(vuexContext,editedPost){
-                return axios.put('https://daca-blog-default-rtdb.firebaseio.com/posts/' + editedPost.id + '.json', editedPost)
+                return axios.put('https://daca-blog-default-rtdb.firebaseio.com/posts/' + editedPost.id + ".json?auth=" + vuexContext.state.token, editedPost)
                 .then(res=> {
                     vuexContext.commit('EDIT_POST', editedPost);
                 })
@@ -71,7 +71,7 @@ const createStore = () => {
                         returnSecureToken: true
                     }).then(result=> {
                         console.log(result);
-                        vuexContext.commit('SET_TOKEN', result.idToken);
+                        vuexContext.commit("SET_TOKEN", result.data.idToken);
                     }).catch(error => {
                         console.log(error);
                     })

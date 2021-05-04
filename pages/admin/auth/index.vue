@@ -25,12 +25,12 @@ export default {
     },
     methods: {
         onSubmit(){
-            this.$store.dispatch('authenticateUser', {
-                email : this.email,
-                isLogin : this.isLogin,
+            this.$store.dispatch("authenticateUser", {
+                isLogin: this.isLogin,
+                email: this.email,
                 password: this.password
             }).then(() => {
-                this.$router.push('/posts');
+                this.$router.push('/admin');
             }) 
         }
     }
