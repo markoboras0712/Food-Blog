@@ -6,7 +6,7 @@ const createStore = () => {
     return new Vuex.Store({
         state: {
             loadedPosts: [],
-            token: null
+            token: null,
         },
         mutations:{
             SET_POSTS(state,posts){
@@ -128,7 +128,7 @@ const createStore = () => {
                     localStorage.removeItem("token");
                     localStorage.removeItem("tokenExpiration");
                 }
-            }
+            },
         },
         getters: {
             loadedPosts(state){
