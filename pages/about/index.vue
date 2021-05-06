@@ -1,182 +1,129 @@
 <template>
-<ul class="cards">
-  <li class="cards__item">
+<div class="body">
+<div class="about-section">
+  <h1 class="bg-text">Our Cooking Team</h1>
+</div>
+
+<h2 style="text-align:center">Chefs</h2>
+<div class="row">
+  <div class="column">
     <div class="card">
-      <div class="card__image card__image--fence"></div>
-      <div class="card__content">
-        <div class="card__title">Flex</div>
-        <p class="card__text">This is the shorthand for flex-grow, flex-shrink and flex-basis combined. The second and third parameters (flex-shrink and flex-basis) are optional. Default is 0 1 auto. </p>
-        <button class="btn btn--block card__btn">Button</button>
+      <img src="https://3ro88z1j1d6h4tqqcwxbpomb-wpengine.netdna-ssl.com/wp-content/uploads/2020/10/Chef-Mike-Massanutten-Updated-300x300.jpg" alt="Jane" style="width:100%;">
+      <div class="container">
+        <h2>Chef Mike</h2>
+        <p class="title">Hamburger master</p>
+        <p>Belly King</p>
+        <p>mike@labelly.com</p>
+        <a target="_blank" href="https://www.tasteofblueridge.com/food-drink/chefs/chef-michael-ritenour/" class="button">Contact</a>
       </div>
     </div>
-  </li>
-  <li class="cards__item">
+  </div>
+
+  <div class="column">
     <div class="card">
-      <div class="card__image card__image--river"></div>
-      <div class="card__content">
-        <div class="card__title">Flex Grow</div>
-        <p class="card__text">This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.</p>
-        <button class="btn btn--block card__btn">Button</button>
+      <img src="http://thethoughtpotato.com/wp-content/uploads/White-Hibachi-Chef-300x300.jpg" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Chef Mike</h2>
+        <p class="title">Chicken Specialist</p>
+        <p>La Belly</p>
+        <p>mike@labelly.com</p>
+        <a target="_blank" href="http://thethoughtpotato.com/family-stuck-with-white-hibachi-chef/" class="button">Contact</a>
       </div>
     </div>
-  </li>
-  <li class="cards__item">
+  </div>
+
+  <div class="column">
     <div class="card">
-      <div class="card__image card__image--record"></div>
-      <div class="card__content">
-        <div class="card__title">Flex Shrink</div>
-        <p class="card__text">This defines the ability for a flex item to shrink if necessary. Negative numbers are invalid.</p>
-        <button class="btn btn--block card__btn">Button</button>
+      <img src="https://serviaboston.com/wp-content/uploads/2020/10/SERVIA_BRIAN-SAMUELS-PHOTOGRAPHY_SEPTEMBER-2020-0686-EDITED-300x300.jpg" alt="John" style="width:100%">
+      <div class="container">
+        <h2>Chef Claudio</h2>
+        <p class="title">Pizza master</p>
+        <p>Italian pizza</p>
+        <p>claudio@labelly.com</p>
+          <a target="_blank" href="https://serviaboston.com/our-team/" class="button">Contact</a>
       </div>
     </div>
-  </li>
-</ul>
+  </div>
+</div>
+    
+</div>
 </template>
 
 <style scoped>
-@gray-darker:               #444444;
-@gray-dark:                 #696969;
-@gray:                      #999999;
-@gray-light:                #cccccc;
-@gray-lighter:              #ececec;
-@gray-lightest:             lighten(@gray-lighter,4%);
 
-*,
-*::before,
-*::after { 
+.about-section{
+  box-sizing: border-box;
+  background-image: url('https://www.freewpheaders.com/wp-content/gallery/food-gallery/italian-pizza-web-header.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+}
+.bg-text{
+  color: white;
+  text-align: left;
+}
+body {
   box-sizing: border-box;
 }
 
-html {
-  background-color: #f0f0f0;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-body {
-  color: @gray;
-  font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0;
-  padding: 1rem;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
-}
-
-img {
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-.btn {
-  background-color: white;
-  border: 1px solid @gray-light;
-  //border-radius: 1rem;
-  color: @gray-dark;
-  padding: 0.5rem;
-  text-transform: lowercase;
-}
-
-.btn--block {
-  display: block;
-  width: 100%;
-}
- 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.cards__item {
-  display: flex;
-  padding: 1rem;
-  @media(min-width: 40rem) {
-    width: 50%;
-  }
-  @media(min-width: 56rem) {
-    width: 33.3333%;
-  }
+.column {
+  float: left;
+  width: 31.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
 }
 
 .card {
-  background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  &:hover {
-    .card__image {
-      filter: contrast(100%);
-    }
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
   }
 }
-
-.card__content {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  padding: 1rem;
-}
-
-.card__image {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-  filter: contrast(70%);
-  //filter: saturate(180%);
-  overflow: hidden;
-  position: relative;
-  transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);;
-  &::before {
-    content: "";
-	  display: block;
-    padding-top: 56.25%; // 16:9 aspect ratio
-  }
-  @media(min-width: 40rem) {
-    &::before {
-      padding-top: 66.6%; // 3:2 aspect ratio
-    }
-  }
-}
-
-.card__image--flowers {
-  background-image: url(https://unsplash.it/800/600?image=82);
-}
-
-.card__image--river {
-  background-image: url(https://unsplash.it/800/600?image=11);
-}
-
-.card__image--record {
-  background-image: url(https://unsplash.it/800/600?image=39);
-}
-
-.card__image--fence {
-  background-image: url(https://unsplash.it/800/600?image=59);
-}
-
-.card__title {
-  color: @gray-dark;
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.card__text {
-  flex: 1 1 auto;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
-}
-
-
 </style>

@@ -2,14 +2,16 @@
   <div class="single-post-page">
     <section class="post">
       <h1 class="post-title">{{loadedPost.title}}</h1>
+      <div class="post-thumbnail" :style="{backgroundImage: 'url(' + loadedImage + ')'}"></div>
       <div class="post-details">
+        
         <div class="post-detail">Last updated on {{loadedPost.updatedDate | date}}</div>
         <div class="post-detail">Written by {{loadedPost.author}}</div>
       </div>
       <p class="post-content">{{loadedPost.content}}</p>
     </section>
     <section class="post-feedback">
-      <p>Let me know what you think about the post, send a mail to <a href="mailto:feedback@my-awesome-domain.com">feedback@my-awesome-domain.com</a>.</p>
+      <p>Let me know what you think about the post, send a mail to <a href="mailto:dacalino@labelly.com">dacalino@labelly.com</a>.</p>
     </section>
   </div>
 </template>
@@ -21,8 +23,10 @@ export default {
     console.log(context.params);
     return axios.get('https://daca-blog-default-rtdb.firebaseio.com/posts/' + context.params.id + '.json')
     .then(res=> {
+      console.log(res.data);
       return {
-        loadedPost : res.data
+        loadedPost : res.data,
+        loadedImage : res.data.thumbnailLink
       }
     }).
     catch(e=> context.error(e));
@@ -38,6 +42,13 @@ export default {
   text-align: center;
   box-sizing: border-box;
 }
+.post-thumbnail {
+  width: 100%;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+}
+
 
 .post-thumbnail {
   width: 100%;

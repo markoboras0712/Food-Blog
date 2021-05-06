@@ -9,7 +9,7 @@
             <div class="navigation-items">
                 <ul class="nav-list">
                     <li class="nav-item"><nuxt-link to="/posts">Food Posts</nuxt-link></li>
-                    <li class="nav-item"><nuxt-link to="/about">About Daca</nuxt-link></li>
+                    <li class="nav-item"><nuxt-link to="/about">Chef Masters</nuxt-link></li>
                     <li class="nav-item"><nuxt-link to="/admin">Admin</nuxt-link></li>
                 </ul>
             </div>
